@@ -12,7 +12,7 @@ module Pulsar
       out_redir   = ENV['DRY_RUN'] ? '> /dev/null 2>&1' : nil
       bundle_cmd  = "#{cmd_env} bundle check || #{cmd_env} bundle install"
 
-      Bundler.with_clean_env do
+      Bundler.with_unbundled_env do
         Rake.sh("#{bundle_cmd}#{out_redir}")
       end
     rescue
