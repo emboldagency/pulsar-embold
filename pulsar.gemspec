@@ -5,6 +5,7 @@ require 'pulsar/version'
 Gem::Specification.new do |gem|
   gem.name           = 'pulsar'
   gem.version        = Pulsar::VERSION
+  gem.licenses         = ['MIT']
   gem.authors        = ['Matteo Latini']
   gem.email          = ['matteolatini@nebulab.it']
   gem.homepage       = 'http://pulsar.nebulab.it'
