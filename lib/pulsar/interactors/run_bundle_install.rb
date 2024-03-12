@@ -15,7 +15,7 @@ module Pulsar
       Bundler.with_unbundled_env do
         Rake.sh("#{bundle_cmd}#{out_redir}")
       end
-    rescue
+    rescue StandardError
       context_fail! $!.message
     end
   end

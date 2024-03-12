@@ -9,7 +9,7 @@ module Pulsar
                                     else
                                       :remote
                                     end
-    rescue
+    rescue StandardError
       context_fail! $!.message
     end
   end

@@ -8,7 +8,7 @@ module Pulsar
       initial_repo = "#{current_path}/../generators/initial_repo"
 
       FileUtils.cp_r(File.expand_path(initial_repo), context.directory)
-    rescue
+    rescue StandardError
       context_fail! $!.message
     end
   end

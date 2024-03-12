@@ -58,7 +58,7 @@ module Pulsar
       result = Pulsar::Task.call(
         repository: load_option_or_env!(:conf_repo),
         application: application, environment: environment,
-        task: 'deploy'
+        task: 'deploy',
       )
 
       if result.success?
@@ -76,7 +76,7 @@ module Pulsar
       result = Pulsar::Task.call(
         repository: load_option_or_env!(:conf_repo),
         application: application, environment: environment,
-        task: task
+        task: task,
       )
 
       if result.success?

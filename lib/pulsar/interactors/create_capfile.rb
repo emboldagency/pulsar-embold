@@ -15,7 +15,7 @@ module Pulsar
       Rake.sh("cat #{default_capfile} >> #{context.capfile_path}") if File.exist?(default_capfile)
       Rake.sh("cat #{app_capfile}     >> #{context.capfile_path}") if File.exist?(app_capfile)
       Rake.sh("echo '#{import_tasks}' >> #{context.capfile_path}")
-    rescue
+    rescue StandardError
       context_fail! $!.message
     end
 

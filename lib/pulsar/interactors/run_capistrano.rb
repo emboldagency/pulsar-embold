@@ -15,7 +15,7 @@ module Pulsar
 
         Rake.sh("#{gemfile_env} #{bundle_env} #{cap_cmd}#{out_redir}")
       end
-    rescue
+    rescue StandardError
       context_fail! $!.message
     end
   end

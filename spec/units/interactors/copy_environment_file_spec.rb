@@ -66,7 +66,7 @@ RSpec.describe Pulsar::CopyEnvironmentFile do
       context 'when no environment context is passed' do
         subject do
           described_class.call(
-            cap_path: './some-path', config_path: './my-conf', application: 'blog'
+            cap_path: './some-path', config_path: './my-conf', application: 'blog',
           )
         end
 

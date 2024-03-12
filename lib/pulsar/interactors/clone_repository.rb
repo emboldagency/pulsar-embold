@@ -11,7 +11,7 @@ module Pulsar
       when :github then clone_github_repository
       when :folder then copy_local_folder
       end
-    rescue
+    rescue StandardError
       context_fail! $!.message
     end
 
@@ -23,7 +23,7 @@ module Pulsar
       quiet = '>/dev/null 2>&1'
 
       Rake.sh(
-        "#{cmd} #{opts} #{context.repository} #{context.config_path} #{quiet}"
+        "#{cmd} #{opts} #{context.repository} #{context.config_path} #{quiet}",
       )
     end
 
@@ -34,12 +34,13 @@ module Pulsar
       repo  = "git@github.com:#{context.repository}.git"
 
       Rake.sh(
-        "#{cmd} #{opts} #{repo} #{context.config_path} #{quiet}"
+        "#{cmd} #{opts} #{repo} #{context.config_path} #{quiet}",
       )
     end
 
     def copy_local_folder
       raise "No repository found at #{context.repository}" unless File.exist? context.repository
+
       FileUtils.cp_r("#{context.repository}/.", context.config_path)
     end
   end

@@ -10,7 +10,7 @@ RSpec.describe Pulsar::CloneRepository do
       described_class.call(
         config_path: run_path,
         repository: repo,
-        repository_type: type
+        repository_type: type,
       )
     end
 

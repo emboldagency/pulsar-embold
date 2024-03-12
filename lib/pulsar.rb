@@ -31,5 +31,5 @@ module Pulsar
   require 'pulsar/cli'
 
   # Silence Rake output
-  Rake::FileUtilsExt.verbose_flag = false
+  Rake::FileUtilsExt.verbose_flag = true
 end

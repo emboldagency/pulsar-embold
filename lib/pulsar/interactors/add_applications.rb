@@ -11,7 +11,7 @@ module Pulsar
       each_application_path do |app|
         context.applications[File.basename(app)] = stages_for(app)
       end
-    rescue
+    rescue StandardError
       context_fail! $!.message
     end
 

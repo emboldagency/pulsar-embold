@@ -111,9 +111,9 @@ Style/StringLiterals:
   Enabled: false
   StyleGuide: http://relaxed.ruby.style/#stylestringliterals
 
-Style/TrailingCommaInLiteral:
-  Enabled: false
-  StyleGuide: http://relaxed.ruby.style/#styletrailingcommainliteral
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: consistent_comma
+  StyleGuide: https://relaxed.ruby.style/#styletrailingcommainliteral
 
 Style/WhileUntilModifier:
   Enabled: false
@@ -153,3 +153,6 @@ Metrics/ParameterLists:
 
 Metrics/PerceivedComplexity:
   Enabled: false
+
+AllCops:
+  TargetRubyVersion: 2.6.3
