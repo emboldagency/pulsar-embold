@@ -1,4 +1,7 @@
-# Pulsar [![Gem Version](https://badge.fury.io/rb/pulsar.svg)](https://badge.fury.io/rb/pulsar) [![CircleCI](https://img.shields.io/circleci/project/github/nebulab/pulsar/master.png)](https://circleci.com/gh/nebulab/pulsar/tree/master) [![Coverage Status](https://coveralls.io/repos/github/nebulab/pulsar/badge.svg?branch=master)](https://coveralls.io/github/nebulab/pulsar?branch=master)
+
+# Pulsar (Embold Fork)
+
+**This is an actively maintained fork of the original [Pulsar](https://github.com/nebulab/pulsar) project by Matteo Latini and Nebulab. The original project is abandoned; Embold maintains this fork for internal and community use.**
 
 The easy [Capistrano][cap-gem] deploy and configuration manager.
 
@@ -264,10 +267,18 @@ and simplify your Pulsar workflow.
 
 [![Nebulab][nebulab-logo]][nebulab]
 
-Pulsar is funded and maintained by the [Nebulab][nebulab] team.
 
-We firmly believe in the power of open-source. [Contact us][contact-us] if you
-like our work and you need help with your project design or development.
+---
+
+## About this fork
+
+This fork is maintained by [Embold](https://embold.com) ([emboldagency](https://github.com/emboldagency)).
+
+The original Pulsar project was created and maintained by Matteo Latini and Nebulab. As the original project is no longer maintained, Embold has adopted and updated this codebase for modern use. All new issues, PRs, and maintenance are handled by the Embold team.
+
+Original author: Matteo Latini ([Nebulab](http://nebulab.it/))
+
+---
 
 [license]: MIT-LICENSE
 [cap-gem]: https://rubygems.org/gems/capistrano

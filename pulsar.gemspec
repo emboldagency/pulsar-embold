@@ -3,17 +3,15 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'pulsar/version'
 
 Gem::Specification.new do |gem|
-  gem.name           = 'pulsar'
+  gem.name           = 'pulsar-embold'
   gem.version        = Pulsar::VERSION
-  gem.licenses = ['MIT']
-  gem.authors        = ['Matteo Latini']
-  gem.email          = ['matteolatini@nebulab.it']
-  gem.homepage       = 'http://pulsar.nebulab.it'
-  gem.description    = 'Manage your Capistrano deployments with ease'
+  gem.licenses       = ['MIT']
+  gem.authors        = ['Embold']
+  gem.email          = ['info@embold.com']
+  gem.homepage       = 'https://github.com/emboldagency/nebulab-pulsar'
+  gem.description    = 'Embold-maintained fork of Pulsar for Capistrano deployments. Originally by Matteo Latini (Nebulab).'
   gem.summary        = '
-    Pulsar helps with Capistrano configuration management. It uses a repository
-    to store all your precious configurations and recipes to build Capistrano
-    deploys on it.
+    Embold-maintained fork of Pulsar, a tool for Capistrano configuration management. The original project by Matteo Latini (Nebulab) is abandoned; this fork is actively maintained by Embold.
   '
   gem.required_ruby_version = '>= 2.6.3'
   gem.files          = `git ls-files`.split($/)
