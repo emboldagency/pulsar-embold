@@ -10,7 +10,6 @@ RSpec.describe Pulsar::CLI do
 
     before do
       allow(Pulsar::Install).to receive(:call).and_return(result)
-      allow($stdout).to receive(:puts)
     end
 
     context 'calls Pulsar::Install with ./pulsar-conf by default' do
