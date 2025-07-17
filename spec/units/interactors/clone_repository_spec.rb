@@ -44,7 +44,7 @@ RSpec.describe Pulsar::CloneRepository do
 
         before do
           expect(Rake).to receive(:sh)
-            .with(/git clone --quiet --depth 1 https:\/\/github.com:#{repo}.git #{run_path}/).ordered
+            .with(%r{git clone --quiet --depth 1 https://github.com:#{repo}.git #{run_path}}).ordered
         end
 
         it { is_expected.to be_a_success }
@@ -65,7 +65,7 @@ RSpec.describe Pulsar::CloneRepository do
         let(:repo) { 'github-account/my-conf' }
 
         let(:github_regex) do
-          /git clone --quiet --depth 1 https:\/\/github.com:#{repo}.git #{run_path}/
+          %r{git clone --quiet --depth 1 https://github.com:#{repo}.git #{run_path}}
         end
 
         before do
