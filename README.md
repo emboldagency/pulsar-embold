@@ -1,7 +1,10 @@
 
-# Pulsar (Embold Fork)
+
+# pulsar-embold (Embold Fork)
 
 **This is an actively maintained fork of the original [Pulsar](https://github.com/nebulab/pulsar) project by Matteo Latini and Nebulab. The original project is abandoned; Embold maintains this fork for internal and community use.**
+
+**This gem is published as `pulsar-embold` on GitHub Packages.**
 
 The easy [Capistrano][cap-gem] deploy and configuration manager.
 
@@ -31,16 +34,29 @@ This version of Pulsar (version `>= 1.0.0`) only supports Capistrano v3. If
 you're looking for Capistrano v2 support you can use Pulsar version `0.3.5` but,
 take care, that version is not maintained anymore.
 
+
 ## Installation
 
-The most useful way of installing Pulsar is as a system gem:
+The recommended way to install this fork is from GitHub Packages:
 
-```bash
-$ gem install pulsar
+### Add the GitHub Packages source to your Gemfile:
+
+```ruby
+source "https://rubygems.org"
+source "https://rubygems.pkg.github.com/emboldagency" do
+  gem "pulsar-embold", "~> 1.0"
+end
 ```
 
-This will install the `pulsar` command which will be used to for everything,
-from running Capistrano to listing your configurations.
+Or install directly with:
+
+```sh
+gem install pulsar-embold --source "https://rubygems.pkg.github.com/emboldagency"
+```
+
+You may need to authenticate with a GitHub personal access token that has `read:packages` scope. See [GitHub Docs](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-rubygems-registry) for details.
+
+This will install the `pulsar` command which will be used for everything, from running Capistrano to listing your configurations.
 
 ---
 
