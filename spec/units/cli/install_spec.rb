@@ -16,13 +16,13 @@ RSpec.describe Pulsar::CLI do
     context 'calls Pulsar::Install with ./pulsar-conf by default' do
       before { described_instance.install }
 
-      it { is_expected.to have_received(:call).with(directory: './pulsar-conf') }
+      it { expect(Pulsar::Install).to have_received(:call).with(directory: './pulsar-conf') }
     end
 
     context 'calls Pulsar::Install with an argument' do
       before { described_instance.install('./a-dir') }
 
-      it { is_expected.to have_received(:call).with(directory: './a-dir') }
+      it { expect(Pulsar::Install).to have_received(:call).with(directory: './a-dir') }
     end
 
     context 'success' do

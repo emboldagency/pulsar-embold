@@ -9,7 +9,7 @@ RSpec.describe Pulsar::CLI do
     subject { -> { described_instance.__print_version } }
 
     it do
-      expect { subject }.to output(/#{Pulsar::VERSION}/).to_stdout
+      expect { described_instance.__print_version }.to output(/#{Pulsar::VERSION}/).to_stdout
     end
   end
 end

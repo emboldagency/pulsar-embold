@@ -22,7 +22,7 @@ RSpec.describe Pulsar::CLI do
         described_instance.list
       end
 
-      it { is_expected.to have_received(:call).with(repository: repo) }
+      it { expect(Pulsar::List).to have_received(:call).with(repository: repo) }
 
       context 'success' do
         subject { -> { described_instance.list } }
@@ -30,7 +30,7 @@ RSpec.describe Pulsar::CLI do
         let(:applications) { { 'blog' => %w(staging) } }
         let(:result) { spy(success?: true, applications: applications) }
 
-        it { is_expected.to output(/blog: staging/).to_stdout }
+        it { expect { described_instance.list }.to output(/blog: staging/).to_stdout }
       end
 
       context 'failure' do
@@ -38,7 +38,7 @@ RSpec.describe Pulsar::CLI do
 
         let(:result) { spy(success?: false) }
 
-        it { is_expected.to output(fail_text).to_stdout }
+        it { expect { described_instance.list }.to output(fail_text).to_stdout }
       end
     end
 
@@ -59,7 +59,7 @@ RSpec.describe Pulsar::CLI do
         Pulsar::PULSAR_CONF = old_const
       end
 
-      it { is_expected.to have_received(:call).with(repository: repo) }
+      it { expect(Pulsar::List).to have_received(:call).with(repository: repo) }
 
       context 'success' do
         subject { -> { described_instance.list } }
@@ -67,7 +67,7 @@ RSpec.describe Pulsar::CLI do
         let(:applications) { { 'blog' => %w(staging) } }
         let(:result) { spy(success?: true, applications: applications) }
 
-        it { is_expected.to output(/blog: staging/).to_stdout }
+        it { expect { described_instance.list }.to output(/blog: staging/).to_stdout }
 
         context 'when file is unaccessible' do
           let(:options) { { conf_repo: repo } }
@@ -78,7 +78,7 @@ RSpec.describe Pulsar::CLI do
             system("chmod 644 #{RSpec.configuration.pulsar_dotenv_conf_path}")
           end
 
-          it { is_expected.to output(/blog: staging/).to_stdout }
+          it { expect { described_instance.list }.to output(/blog: staging/).to_stdout }
         end
       end
 
@@ -87,7 +87,7 @@ RSpec.describe Pulsar::CLI do
 
         let(:result) { spy(success?: false) }
 
-        it { is_expected.to output(fail_text).to_stdout }
+        it { expect { described_instance.list }.to output(fail_text).to_stdout }
       end
     end
 
@@ -98,7 +98,7 @@ RSpec.describe Pulsar::CLI do
         described_instance.list
       end
 
-      it { is_expected.to have_received(:call).with(repository: repo) }
+      it { expect(Pulsar::List).to have_received(:call).with(repository: repo) }
 
       context 'success' do
         subject { -> { described_instance.list } }
@@ -106,7 +106,7 @@ RSpec.describe Pulsar::CLI do
         let(:applications) { { 'blog' => %w(staging) } }
         let(:result) { spy(success?: true, applications: applications) }
 
-        it { is_expected.to output(/blog: staging/).to_stdout }
+        it { expect { described_instance.list }.to output(/blog: staging/).to_stdout }
       end
 
       context 'failure' do
@@ -114,7 +114,7 @@ RSpec.describe Pulsar::CLI do
 
         let(:result) { spy(success?: false) }
 
-        it { is_expected.to output(fail_text).to_stdout }
+        it { expect { described_instance.list }.to output(fail_text).to_stdout }
       end
     end
 
@@ -122,7 +122,7 @@ RSpec.describe Pulsar::CLI do
       context 'failure' do
         subject { -> { described_instance.deploy('blog', 'production') } }
 
-        it { is_expected.to raise_error(Thor::RequiredArgumentMissingError) }
+        it { expect { described_instance.deploy('blog', 'production') }.to raise_error(Thor::RequiredArgumentMissingError) }
       end
     end
   end
