@@ -57,14 +57,19 @@ RSpec.describe 'Install' do
     it { is_expected.to match "Failed to create intial repo.\n" }
 
     context 'does not create a directory' do
+      subject { -> { command } }
+
       it do
         expect { command }.not_to change { File.exist?('./my-dir') }.from(false)
       end
     end
-    subject { -> { command } }
 
-    it do
-      expect { command }.not_to change { File.exist?('./my-dir') }.from(false)
+    context 'does not create a directory' do
+      subject { -> { command } }
+
+      it do
+        expect { command }.not_to change { File.exist?('./my-dir') }.from(false)
+      end
     end
   end
 end

@@ -22,7 +22,7 @@ module Pulsar
         puts 'Successfully created intial repo!'
       else
         puts 'Failed to create intial repo.'
-        puts result.error if result.error
+        puts result.error
       end
     end
 

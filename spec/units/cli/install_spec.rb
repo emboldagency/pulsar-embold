@@ -25,30 +25,24 @@ RSpec.describe Pulsar::CLI do
     end
 
     context 'success' do
-      subject { -> { described_instance.install } }
-
       let(:result) { spy(success?: true) }
 
       it do
-        expect { subject }.to output(/Successfully created intial repo!/).to_stdout
+        expect { described_instance.install }.to output(/Successfully created intial repo!/).to_stdout
       end
     end
 
     context 'failure' do
-      subject { -> { described_instance.install } }
-
       let(:result) { spy(success?: false) }
 
       it do
-        expect { subject }.to output(/Failed to create intial repo./).to_stdout
+        expect { described_instance.install }.to output(/Failed to create intial repo./).to_stdout
       end
     end
 
     context 'when an error is reported' do
-      subject { -> { described_instance.install } }
       before do
         allow(described_instance).to receive(:options).and_return(conf_repo: repo)
-        described_instance.list
       end
 
       let(:repo) { RSpec.configuration.pulsar_conf_path }
@@ -57,7 +51,7 @@ RSpec.describe Pulsar::CLI do
         let(:result) { spy(success?: false, error: "A stub sets this error") }
 
         it do
-          expect { subject }.to output(/A stub sets this error/).to_stdout
+          expect { described_instance.install }.to output(/A stub sets this error/).to_stdout
         end
       end
 
@@ -65,7 +59,7 @@ RSpec.describe Pulsar::CLI do
         let(:result) { spy(success?: false, error: RuntimeError.new("A stub sets this error")) }
 
         it do
-          expect { subject }.to output(/A stub sets this error/).to_stdout
+          expect { described_instance.install }.to output(/A stub sets this error/).to_stdout
         end
       end
     end
