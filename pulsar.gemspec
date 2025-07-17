@@ -13,15 +13,15 @@ Gem::Specification.new do |gem|
   gem.summary        = '
     Embold-maintained fork of Pulsar, a tool for Capistrano configuration management. The original project by Matteo Latini (Nebulab) is abandoned; this fork is actively maintained by Embold.
   '
-  gem.required_ruby_version = '>= 3.0.0'
+  gem.required_ruby_version = '>= 3.0.7'
   gem.files          = `git ls-files`.split($/)
   gem.bindir         = 'exe'
   gem.executables    = gem.files.grep(%r{^exe/}).map { |f| File.basename(f) }
   gem.test_files     = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths  = ['lib']
 
-  gem.add_dependency 'bundler', '>= 2.3'
-  gem.add_dependency 'dotenv', '> 3.1'
+  # gem.add_development_dependency 'bundler', '>= 2.0'
+  gem.add_dependency 'dotenv', '>= 2.8.1'
   gem.add_dependency 'interactor', '> 3.0'
   gem.add_dependency 'thor', '>= 1.3.2'
 
