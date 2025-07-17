@@ -63,6 +63,8 @@ RSpec.describe 'Install' do
     end
     subject { -> { command } }
 
-    it { is_expected.not_to change { File.exist?('./my-dir') }.from(false) }
+    it do
+      expect { command }.not_to change { File.exist?('./my-dir') }.from(false)
+    end
   end
 end
