@@ -20,15 +20,14 @@ Gem::Specification.new do |gem|
   gem.test_files     = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths  = ['lib']
 
-  gem.add_dependency 'bundler', '> 2'
-  gem.add_dependency 'dotenv', '> 2.0'
-  gem.add_dependency 'interactor', '> 3.1'
-  gem.add_dependency 'thor', '> 0.19'
+  gem.add_dependency 'bundler', '>= 2.4'
+  gem.add_dependency 'dotenv', '> 3.1'
+  gem.add_dependency 'interactor', '> 3.0'
+  gem.add_dependency 'thor', '>= 1.3.2'
 
-  gem.add_development_dependency 'coveralls', '> 0.8.20'
-  gem.add_development_dependency 'rake', '> 10.4'
-  gem.add_development_dependency 'rspec', '> 3.2'
-  gem.add_development_dependency 'rubocop', '> 0.47'
-  gem.add_development_dependency 'simplecov', '> 0.14.0'
-  gem.add_development_dependency 'timecop', '> 0.8'
+  gem.add_development_dependency 'rake', '>= 13.3.0'
+  gem.add_development_dependency 'rspec', '> 3.4'
+  gem.add_development_dependency 'rubocop', '>= 1.78.0'
+  gem.add_development_dependency 'simplecov', '> 0.21.0'
+  gem.add_development_dependency 'timecop', '>= 0.9.10'
 end
