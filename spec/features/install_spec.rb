@@ -14,7 +14,7 @@ RSpec.describe 'Install' do
 
     let(:error) { /Could not find command/ }
 
-    it { is_expected.not_to output(error).to_stderr_from_any_process }
+    it { expect { subject.call }.not_to output(error).to_stderr_from_any_process }
   end
 
   context 'when succeeds' do
@@ -37,8 +37,7 @@ RSpec.describe 'Install' do
 
       context 'inside the current directory by default' do
         it 'named pulsar-conf' do
-          is_expected
-            .to change { File.exist?('./pulsar-conf') }.from(false).to(true)
+          expect { command }.to change { File.exist?('./pulsar-conf') }.from(false).to(true)
         end
       end
 
@@ -46,7 +45,7 @@ RSpec.describe 'Install' do
         let(:arguments) { './my-dir' }
 
         it 'named as the argument' do
-          is_expected.to change { File.exist?('./my-dir') }.from(false).to(true)
+          expect { command }.to change { File.exist?('./my-dir') }.from(false).to(true)
         end
       end
     end
@@ -58,6 +57,10 @@ RSpec.describe 'Install' do
     it { is_expected.to match "Failed to create intial repo.\n" }
 
     context 'does not create a directory' do
+      it do
+        expect { command }.not_to change { File.exist?('./my-dir') }.from(false)
+      end
+    end
       subject { -> { command } }
 
       it { is_expected.not_to change { File.exist?('./my-dir') }.from(false) }

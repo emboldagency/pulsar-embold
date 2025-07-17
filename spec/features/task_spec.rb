@@ -17,25 +17,25 @@ RSpec.describe 'Task' do
   context 'via a subcommand named task' do
     let(:error) { /Could not find command/ }
 
-    it { is_expected.not_to output(error).to_stderr_from_any_process }
+    it { expect { subject.call }.not_to output(error).to_stderr_from_any_process }
   end
 
   context 'requires a --conf-repo option' do
     let(:options) { nil }
     let(:error)   { /No value provided for required options '--conf-repo'/ }
 
-    it { is_expected.to output(error).to_stderr_from_any_process }
+    it { expect { subject.call }.to output(error).to_stderr_from_any_process }
 
     context 'can be specified via the alias -c' do
       let(:options) { "-c #{repo}" }
 
-      it { is_expected.not_to output(error).to_stderr_from_any_process }
+      it { expect { subject.call }.not_to output(error).to_stderr_from_any_process }
     end
 
     context 'can be specified via the environment variable PULSAR_CONF_REPO' do
       before { ENV['PULSAR_CONF_REPO'] = repo }
 
-      it { is_expected.not_to output(error).to_stderr_from_any_process }
+      it { expect { subject.call }.not_to output(error).to_stderr_from_any_process }
     end
   end
 
@@ -44,7 +44,7 @@ RSpec.describe 'Task' do
     let(:environment) { nil }
     let(:error)       { /Usage: "pulsar task APPLICATION ENVIRONMENT TASK"/ }
 
-    it { is_expected.to output(error).to_stderr_from_any_process }
+    it { expect { subject.call }.to output(error).to_stderr_from_any_process }
   end
 
   context 'when succeeds' do
