@@ -27,8 +27,8 @@ RSpec.configure do |config|
   config.pulsar_wrong_bundle_conf_path = File.expand_path('./spec/support/dummies/conf/wrong_bundle')
   config.pulsar_dotenv_conf_path = File.expand_path('./spec/support/dummies/conf/dotenv')
   config.pulsar_local_conf_repo_path = File.expand_path('./spec/support/tmp/dummy-repo')
-  config.pulsar_remote_git_conf = 'git@github.com:nebulab/pulsar-conf-demo.git'
-  config.pulsar_remote_github_conf = 'nebulab/pulsar-conf-demo'
+  config.pulsar_remote_git_conf = 'git@github.com:emboldagency/pulsar-conf-dummy.git'
+  config.pulsar_remote_github_conf = 'emboldagency/pulsar-conf-dummy'
 
   config.before(:suite) do
     Dir.chdir('./spec/support/tmp')
