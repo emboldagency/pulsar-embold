@@ -1,9 +1,8 @@
+
 require 'simplecov'
-require 'coveralls'
 
 SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
+  SimpleCov::Formatter::HTMLFormatter
 ]
 
 # Save to CircleCI's artifacts directory if we're on CircleCI
