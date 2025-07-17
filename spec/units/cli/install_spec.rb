@@ -30,7 +30,9 @@ RSpec.describe Pulsar::CLI do
 
       let(:result) { spy(success?: true) }
 
-      it { is_expected.to output(/Successfully created intial repo!/).to_stdout }
+      it do
+        expect { subject }.to output(/Successfully created intial repo!/).to_stdout
+      end
     end
 
     context 'failure' do
@@ -38,7 +40,9 @@ RSpec.describe Pulsar::CLI do
 
       let(:result) { spy(success?: false) }
 
-      it { is_expected.to output(/Failed to create intial repo./).to_stdout }
+      it do
+        expect { subject }.to output(/Failed to create intial repo./).to_stdout
+      end
     end
 
     context 'when an error is reported' do
@@ -53,13 +57,17 @@ RSpec.describe Pulsar::CLI do
       context 'as a string' do
         let(:result) { spy(success?: false, error: "A stub sets this error") }
 
-        it { is_expected.to output(/A stub sets this error/).to_stdout }
+        it do
+          expect { subject }.to output(/A stub sets this error/).to_stdout
+        end
       end
 
       context 'as an exception object' do
         let(:result) { spy(success?: false, error: RuntimeError.new("A stub sets this error")) }
 
-        it { is_expected.to output(/A stub sets this error/).to_stdout }
+        it do
+          expect { subject }.to output(/A stub sets this error/).to_stdout
+        end
       end
     end
   end

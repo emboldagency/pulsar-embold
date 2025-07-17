@@ -33,7 +33,9 @@ RSpec.describe Pulsar::CLI do
         let(:success) { "Deployed blog on production!" }
         let(:result) { spy(success?: true) }
 
-        it { is_expected.to output(/#{success}/).to_stdout }
+        it do
+          expect { subject }.to output(/#{success}/).to_stdout
+        end
       end
 
       context 'failure' do
@@ -41,7 +43,9 @@ RSpec.describe Pulsar::CLI do
 
         let(:result) { spy(success?: false) }
 
-        it { is_expected.to output(fail_text).to_stdout }
+        it do
+          expect { subject }.to output(fail_text).to_stdout
+        end
       end
     end
 
@@ -73,7 +77,9 @@ RSpec.describe Pulsar::CLI do
         let(:success) { "Deployed blog on production!" }
         let(:result) { spy(success?: true) }
 
-        it { is_expected.to output(/#{success}/).to_stdout }
+        it do
+          expect { subject }.to output(/#{success}/).to_stdout
+        end
 
         context 'when file is unaccessible' do
           let(:options) { { conf_repo: repo } }
@@ -84,7 +90,9 @@ RSpec.describe Pulsar::CLI do
             system("chmod 644 #{RSpec.configuration.pulsar_dotenv_conf_path}")
           end
 
-          it { is_expected.to output(/#{success}/).to_stdout }
+          it do
+            expect { subject }.to output(/#{success}/).to_stdout
+          end
         end
       end
 
@@ -93,7 +101,9 @@ RSpec.describe Pulsar::CLI do
 
         let(:result) { spy(success?: false) }
 
-        it { is_expected.to output(fail_text).to_stdout }
+        it do
+          expect { subject }.to output(fail_text).to_stdout
+        end
       end
     end
 
@@ -115,7 +125,9 @@ RSpec.describe Pulsar::CLI do
         let(:success) { "Deployed blog on production!" }
         let(:result) { spy(success?: true) }
 
-        it { is_expected.to output(/#{success}/).to_stdout }
+        it do
+          expect { subject }.to output(/#{success}/).to_stdout
+        end
       end
 
       context 'failure' do
@@ -123,7 +135,9 @@ RSpec.describe Pulsar::CLI do
 
         let(:result) { spy(success?: false) }
 
-        it { is_expected.to output(fail_text).to_stdout }
+        it do
+          expect { subject }.to output(fail_text).to_stdout
+        end
       end
     end
 
@@ -131,7 +145,9 @@ RSpec.describe Pulsar::CLI do
       context 'failure' do
         subject { -> { described_instance.deploy('blog', 'production') } }
 
-        it { is_expected.to raise_error(Thor::RequiredArgumentMissingError) }
+        it do
+          expect { subject }.to raise_error(Thor::RequiredArgumentMissingError)
+        end
       end
     end
   end

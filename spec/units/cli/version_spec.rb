@@ -8,6 +8,8 @@ RSpec.describe Pulsar::CLI do
   context '#__print_version' do
     subject { -> { described_instance.__print_version } }
 
-    it { is_expected.to output(/#{Pulsar::VERSION}/).to_stdout }
+    it do
+      expect { subject }.to output(/#{Pulsar::VERSION}/).to_stdout
+    end
   end
 end
