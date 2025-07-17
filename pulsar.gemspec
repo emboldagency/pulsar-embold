@@ -8,7 +8,7 @@ Gem::Specification.new do |gem|
   gem.licenses       = ['MIT']
   gem.authors        = ['Embold']
   gem.email          = ['info@embold.com']
-  gem.homepage       = 'https://github.com/emboldagency/nebulab-pulsar'
+  gem.homepage       = 'https://github.com/emboldagency/pulsar-embold'
   gem.description    = 'Embold-maintained fork of Pulsar for Capistrano deployments. Originally by Matteo Latini (Nebulab).'
   gem.summary        = '
     Embold-maintained fork of Pulsar, a tool for Capistrano configuration management. The original project by Matteo Latini (Nebulab) is abandoned; this fork is actively maintained by Embold.

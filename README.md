@@ -298,6 +298,7 @@ Original author: Matteo Latini ([Nebulab](http://nebulab.it/))
 
 [license]: MIT-LICENSE
 [cap-gem]: https://rubygems.org/gems/capistrano
+[emboldagency]: https://embold.com
 [nebulab]: http://nebulab.it/
 [nebulab-logo]: http://nebulab.it/assets/images/public/logo.svg
 [contact-us]: http://nebulab.it/contact-us/
