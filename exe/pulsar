@@ -1,4 +1,12 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# Silence warnings from Bundler/RubyGems constant redefinitions
+$VERBOSE = nil
+
+# Skip config loading when running feature tests (which call via backticks)
+# Feature tests explicitly pass options or set env vars, so they don't rely on ~/.pulsar/config
+ENV['PULSAR_SKIP_CONFIG_LOAD'] = 'true' if ENV['DRY_RUN']
 
 require 'pulsar'
 

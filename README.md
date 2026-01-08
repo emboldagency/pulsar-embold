@@ -206,6 +206,22 @@ export PULSAR_CONF_REPO="gh-user/pulsar-conf"
 After the repository is ready, running Pulsar is straightforward. You can either
 list your applications or build a configuration and run Capistrano on it.
 
+### Verbosity
+
+Pulsar suppresses Rake/FileUtils command echo by default. To enable verbose output (echo each command):
+
+```bash
+export PULSAR_VERBOSE=1
+```
+
+Unset or set to `0`/`false` to disable verbose output. You can also toggle it per invocation with `--verbose` / `-V`:
+
+```bash
+pulsar deploy my_app production --verbose
+```
+
+`--verbose` overrides the environment variable for that command only.
+
 ### Deploy
 
 Running the `deploy` command really means running Capistrano on a certain

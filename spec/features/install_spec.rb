@@ -4,7 +4,7 @@ RSpec.describe 'Install' do
   subject { command }
 
   let(:command) do
-    `#{RSpec.configuration.pulsar_command} install #{arguments}`
+    `DRY_RUN=true #{RSpec.configuration.pulsar_command} install #{arguments}`
   end
 
   let(:arguments) { nil }

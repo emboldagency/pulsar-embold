@@ -4,7 +4,7 @@ RSpec.describe 'List' do
   subject { -> { command } }
 
   let(:command) do
-    `#{RSpec.configuration.pulsar_command} list #{arguments}`
+    `DRY_RUN=true #{RSpec.configuration.pulsar_command} list #{arguments}`
   end
 
   let(:repo)      { RSpec.configuration.pulsar_conf_path }

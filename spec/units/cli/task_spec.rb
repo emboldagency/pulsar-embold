@@ -142,6 +142,11 @@ RSpec.describe Pulsar::CLI do
     end
 
     context 'when no configuration repo is passed' do
+      before do
+        allow(described_instance).to receive(:options).and_return({})
+        allow(File).to receive(:exist?).with(Pulsar::PULSAR_CONF).and_return(false)
+      end
+
       context 'failure' do
         subject { -> { described_instance.task('blog', 'production', 'deploy:check') } }
 

@@ -7,6 +7,8 @@ module Pulsar
   class CLI < Thor
     map %w[--version -v] => :__print_version
 
+    class_option :verbose, type: :boolean, aliases: '-V', desc: 'Echo Rake/FileUtils commands'
+
     desc 'install [DIRECTORY]', 'Install initial repository in DIRECTORY'
     long_desc <<-LONGDESC
       `pulsar install` will install the initial pulsar repository in the
@@ -16,6 +18,7 @@ module Pulsar
       destination directory in which to install the repository.
     LONGDESC
     def install(directory = './pulsar-conf')
+      set_verbosity
       result = Pulsar::Install.call(directory: directory)
 
       if result.success?
@@ -33,6 +36,7 @@ module Pulsar
     LONGDESC
     option :conf_repo, aliases: '-c'
     def list
+      set_verbosity
       load_config
       result = Pulsar::List.call(repository: load_option_or_env!(:conf_repo))
 
@@ -54,6 +58,7 @@ module Pulsar
     LONGDESC
     option :conf_repo, aliases: '-c'
     def deploy(application, environment)
+      set_verbosity
       load_config
       result = Pulsar::Task.call(
         repository: load_option_or_env!(:conf_repo),
@@ -72,6 +77,7 @@ module Pulsar
     desc 'task APPLICATION ENVIRONMENT TASK', 'Run Capistrano task for APPLICATION on ENVIRONMENT'
     option :conf_repo, aliases: '-c'
     def task(application, environment, task)
+      set_verbosity
       load_config
       result = Pulsar::Task.call(
         repository: load_option_or_env!(:conf_repo),
@@ -94,7 +100,14 @@ module Pulsar
 
     private
 
+    def set_verbosity
+      return unless options.key?(:verbose)
+
+      Rake::FileUtilsExt.verbose_flag = options[:verbose]
+    end
+
     def load_config
+      return if ENV['PULSAR_SKIP_CONFIG_LOAD']
       return unless File.exist?(PULSAR_CONF) && File.stat(PULSAR_CONF).readable?
 
       Dotenv.load(PULSAR_CONF) # Load configurations for Pulsar

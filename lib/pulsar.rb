@@ -1,6 +1,10 @@
 require 'pulsar/version'
 
 module Pulsar
+  # Silence noisy warnings from Bundler/RubyGems
+  # This must run before requiring bundler to have effect
+  $VERBOSE = nil
+
   require 'bundler'
   require 'thor'
   require 'rake'
@@ -31,5 +35,8 @@ module Pulsar
   require 'pulsar/cli'
 
   # Silence Rake output
-  Rake::FileUtilsExt.verbose_flag = true
+  # Default to non-verbose; allow override via ENV `PULSAR_VERBOSE`
+  Rake::FileUtilsExt.verbose_flag = (
+    ENV['PULSAR_VERBOSE'] == '1' || ENV['PULSAR_VERBOSE']&.downcase == 'true'
+  )
 end

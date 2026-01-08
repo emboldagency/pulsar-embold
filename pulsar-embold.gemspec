@@ -21,13 +21,13 @@ Gem::Specification.new do |gem|
   gem.require_paths  = ['lib']
 
   # gem.add_development_dependency 'bundler', '>= 2.0'
-  gem.add_dependency 'dotenv', '>= 2.8.1'
-  gem.add_dependency 'interactor', '> 3.0'
-  gem.add_dependency 'thor', '>= 1.3.2'
+  gem.add_dependency 'dotenv', '~> 2.8', '>= 2.8.1'
+  gem.add_dependency 'interactor', '~> 3.0', '> 3.0'
+  gem.add_dependency 'thor', '~> 1.3', '>= 1.3.2'
 
-  gem.add_development_dependency 'rake', '>= 13.3.0'
-  gem.add_development_dependency 'rspec', '> 3.4'
-  gem.add_development_dependency 'rubocop', '>= 1.78.0'
-  gem.add_development_dependency 'simplecov', '> 0.21.0'
-  gem.add_development_dependency 'timecop', '>= 0.9.10'
+  gem.add_development_dependency 'rake', '~> 13.3', '>= 13.3.0'
+  gem.add_development_dependency 'rspec', '~> 3.4', '> 3.4'
+  gem.add_development_dependency 'rubocop', '~> 1.78', '>= 1.78.0'
+  gem.add_development_dependency 'simplecov', '~> 0.21', '> 0.21.0'
+  gem.add_development_dependency 'timecop', '~> 0.9', '>= 0.9.10'
 end
