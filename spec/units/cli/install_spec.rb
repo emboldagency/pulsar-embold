@@ -10,6 +10,7 @@ RSpec.describe Pulsar::CLI do
 
     before do
       allow(Pulsar::Install).to receive(:call).and_return(result)
+      allow(described_instance).to receive(:exit)
     end
 
     context 'calls Pulsar::Install with ./pulsar-conf by default' do
@@ -37,6 +38,7 @@ RSpec.describe Pulsar::CLI do
 
       it do
         expect { described_instance.install }.to output(/Failed to create intial repo./).to_stdout
+        expect(described_instance).to have_received(:exit).with(1).at_least(:once)
       end
     end
 
