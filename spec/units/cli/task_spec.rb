@@ -12,6 +12,7 @@ RSpec.describe Pulsar::CLI do
 
     before do
       allow($stdout).to receive(:puts)
+      allow(described_instance).to receive(:exit)
       allow(Pulsar::Task).to receive(:call).and_return(result)
     end
 
@@ -45,6 +46,7 @@ RSpec.describe Pulsar::CLI do
 
         it do
           expect { described_instance.task('blog', 'production', 'deploy:check') }.to output(fail_text).to_stdout
+          expect(described_instance).to have_received(:exit).with(1).at_least(:once)
         end
       end
     end
@@ -103,6 +105,7 @@ RSpec.describe Pulsar::CLI do
 
         it do
           expect { described_instance.task('blog', 'production', 'deploy:check') }.to output(fail_text).to_stdout
+          expect(described_instance).to have_received(:exit).with(1).at_least(:once)
         end
       end
     end
@@ -137,6 +140,7 @@ RSpec.describe Pulsar::CLI do
 
         it do
           expect { described_instance.task('blog', 'production', 'deploy:check') }.to output(fail_text).to_stdout
+          expect(described_instance).to have_received(:exit).with(1).at_least(:once)
         end
       end
     end

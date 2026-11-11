@@ -7,6 +7,10 @@ module Pulsar
   class CLI < Thor
     map %w[--version -v] => :__print_version
 
+    def self.exit_on_failure?
+      true
+    end
+
     class_option :verbose, type: :boolean, aliases: '-V', desc: 'Echo Rake/FileUtils commands'
 
     desc 'install [DIRECTORY]', 'Install initial repository in DIRECTORY'
@@ -26,6 +30,7 @@ module Pulsar
       else
         puts 'Failed to create intial repo.'
         puts result.error
+        exit 1
       end
     end
 
@@ -47,6 +52,7 @@ module Pulsar
       else
         puts 'Failed to list application and environments.'
         puts result.error
+        exit 1
       end
     end
 
@@ -71,6 +77,7 @@ module Pulsar
       else
         puts "Failed to deploy #{application} on #{environment}."
         puts result.error
+        exit 1
       end
     end
 
@@ -90,6 +97,7 @@ module Pulsar
       else
         puts "Failed to execute task #{task} for #{application} on #{environment}."
         puts result.error
+        exit 1
       end
     end
 
