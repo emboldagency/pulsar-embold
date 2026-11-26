@@ -67,9 +67,9 @@ module Pulsar
       )
 
       if result.success?
-        puts "Deployed #{application} on #{environment}!"
+        puts "Deployed #{Pulsar::AppLabel.for(application)} on #{environment}!"
       else
-        puts "Failed to deploy #{application} on #{environment}."
+        puts "Failed to deploy #{Pulsar::AppLabel.for(application)} on #{environment}."
         puts result.error
       end
     end
@@ -86,9 +86,9 @@ module Pulsar
       )
 
       if result.success?
-        puts "Executed task #{task} for #{application} on #{environment}!"
+        puts "Executed task #{task} for #{Pulsar::AppLabel.for(application)} on #{environment}!"
       else
-        puts "Failed to execute task #{task} for #{application} on #{environment}."
+        puts "Failed to execute task #{task} for #{Pulsar::AppLabel.for(application)} on #{environment}."
         puts result.error
       end
     end
